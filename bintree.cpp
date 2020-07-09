@@ -82,21 +82,18 @@ void BinTree::clear(DataNode*){
 
 bool BinTree::addNode(DataNode * t, DataNode ** temp){
     bool inserted = false;
-    DataNode *n;
-    if(root == nullptr){
+    if(*temp == nullptr){
         *temp = new DataNode;
         (*temp)->left = nullptr;
         (*temp)->right = nullptr;
         (*temp)->data.id = t->data.id;
         (*temp)->data.information = t->data.information;
         inserted = true;
-        //cout << "INSERTED" << endl;
     }
     if (t->data.id < (*temp)->data.id){
         DataNode *t2 = new DataNode;
         t2 =  (*temp)->left;
         inserted = addNode(t, &t2);
-
     } else if (t->data.id > (*temp)->data.id){
         DataNode *t3 = new DataNode;
         t3 =  (*temp)->right;
