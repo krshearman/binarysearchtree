@@ -9,7 +9,7 @@ Purpose: Binary Tree
 //public methods
 BinTree::BinTree(){
     count = 0;
-    DataNode * root = nullptr;
+    root = nullptr;
 }
 
 BinTree::~BinTree(){
@@ -37,7 +37,34 @@ void BinTree::clear(){
 }
 
 bool BinTree::addNode(int id, string data){
-    return false;
+    //bool inserted = false;
+   /* DataNode *t;
+    if(root == nullptr){
+        t = new DataNode;
+        t->data.id = id;
+        t->data.information = data;
+        t->left = nullptr;
+        t->right = nullptr;
+        inserted = true;
+    }
+    if(id < root->data.id){
+        DataNode *l = root->left;
+        DataNode *left = l;
+        inserted = addNode(t, &left);
+    }
+    if(id > root->data.id){
+        DataNode *r = root->right;
+        DataNode *right = r;
+        inserted = addNode(t, &right);
+    }*/
+
+   DataNode * t = new DataNode;
+   t->data.id = id;
+   t->data.information = data;
+   t->left = nullptr;
+   t->right = nullptr;
+   DataNode *temp = root;
+   return addNode(t, &temp);
 }
 
 bool BinTree::removeNode(int id){
@@ -74,8 +101,29 @@ void BinTree::clear(DataNode*){
 
 }
 
-bool BinTree::addNode(DataNode * data, DataNode ** dataptr){
-    return false;
+bool BinTree::addNode(DataNode * t, DataNode ** temp){
+    bool inserted = false;
+    DataNode *n;
+    if(root == nullptr){
+        *temp = new DataNode;
+        (*temp)->left = nullptr;
+        (*temp)->right = nullptr;
+        (*temp)->data.id = t->data.id;
+        (*temp)->data.information = t->data.information;
+        inserted = true;
+        //cout << "INSERTED" << endl;
+    }
+    if (t->data.id < (*temp)->data.id){
+        DataNode *t2 = new DataNode;
+        t2 =  (*root).left;
+        inserted = addNode(t, &t2);
+
+    } else if (t->data.id > (*temp)->data.id){
+        DataNode *t3 = new DataNode;
+        t3 =  (*root).right;
+        inserted = addNode(t, &t3);
+    }
+    return inserted;
 }
 
 DataNode* BinTree::removeNode(int id, DataNode * data){
@@ -103,6 +151,15 @@ void BinTree::displayPostOrder(DataNode * data){
 
 }
 
-void BinTree::displayInOrder(DataNode * data){
-
+void BinTree::displayInOrder(DataNode * temproot){
+    if (temproot) {
+        if (temproot->left) {
+            displayInOrder(temproot->left);
+        }
+        cout << temproot->data.id << " " << temproot->data.information << endl;
+        if (temproot->right) {
+            displayInOrder(temproot->right);
+        }
+    }
+    return;
 }
