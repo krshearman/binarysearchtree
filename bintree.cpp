@@ -17,7 +17,11 @@ BinTree::~BinTree(){
 }
 
 bool BinTree::isEmpty(){
-    return false;
+    bool isEmpty = false;
+    if(count != 0){
+        isEmpty = true;
+    }
+    return isEmpty;
 }
 
 int BinTree::getCount(){
@@ -59,7 +63,10 @@ bool BinTree::contains(int id){
 }
 
 int BinTree::getHeight(){
-    return 0;
+    DataNode * temp;
+    temp = new DataNode;
+    temp = root;
+    return getHeight(temp);
 }
 
 void BinTree::displayPreOrder(){
@@ -88,6 +95,7 @@ bool BinTree::addNode(DataNode * t, DataNode ** temp){
         (*temp)->right = nullptr;
         (*temp)->data.id = t->data.id;
         (*temp)->data.information = t->data.information;
+        count++;
         inserted = true;
     }
     if (t->data.id < (*temp)->data.id){
@@ -115,8 +123,17 @@ bool BinTree::contains(int id, DataNode * data){
     return false;
 }
 
-int BinTree::getHeight(DataNode * data){
-    return 0;
+int BinTree::getHeight(DataNode * temp){
+    int height;
+    int x, y;
+    if (temp == nullptr){
+        height = 0;
+    } else {
+        x = getHeight(temp->left);
+        y = getHeight(temp->right);
+        height = x > y ? x + 1 : y + 1;
+    }
+    return height;
 }
 
 void BinTree::displayPreOrder(DataNode * data){
