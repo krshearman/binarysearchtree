@@ -22,12 +22,12 @@ int main(int argc, char** argv) {
      */
     BinTree *binSearchTree = new BinTree;
     cout << endl << "Binary Search Tree created" << endl << endl;
-    binSearchTree->displayTree();
+    //binSearchTree->displayTree();
 
     /*
      *  testing methods on empty tree
      */
-    cout << "Testing removeNode() on empty tree" << endl;
+    /*cout << "Testing removeNode() on empty tree" << endl;
     cout << "==============================================" << endl;
     tempid = 10;
     cout << "removing " << tempid << "... ";
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     } else {
         cout << "NOT found: " << tempid << endl;
     }
-    cout << endl;
+    cout << endl;*/
 
     /*
      *  filling tree with test data and displaying
@@ -69,7 +69,18 @@ int main(int argc, char** argv) {
         cout << endl;
     }
     cout << endl;
-    binSearchTree->displayTree();
+
+    /* START THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
+
+    binSearchTree->displayInOrder();
+    cout << endl;
+
+
+
+
+
+    /* END THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
+    //binSearchTree->displayTree();
 
     cout << "Testing getRootData() on non-empty tree" << endl;
     cout << "==============================================" << endl;
@@ -79,10 +90,10 @@ int main(int argc, char** argv) {
         cout << "NOT retrieved " << tempData.id << " " << tempData.information << endl;
     }
     cout << endl;
-
     /*
+    *//*
      *  testing contains randomly
-     */
+     *//*
     cout << "Testing contains() randomly" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA1; i++) {
@@ -102,8 +113,8 @@ int main(int argc, char** argv) {
     cout << "==============================================" << endl;
     cout << endl;
 
-    /*
-     *  testing get node
+    */
+     /*  testing get node
      */
     cout << "Testing getNode() randomly" << endl;
     cout << "==============================================" << endl;
@@ -139,10 +150,10 @@ int main(int argc, char** argv) {
         cout << "NOT found: " << tempid << endl;
     }
     cout << endl;
-
     /*
+    *//*
      *  testing removing nodes
-     */
+     *//*
     cout << "Testing removeNode() randomly" << endl;
     cout << "==============================================" << endl;
     tempid = ids1[random_range(0, TESTDATA1 - 1)];
@@ -173,19 +184,19 @@ int main(int argc, char** argv) {
     binSearchTree->displayTree();
     cout << endl;
 
-    /*
+    *//*
      *  testing clearing tree
      *  and displaying it
-     */
+     *//*
     cout << "Clearing tree... ";
     binSearchTree->clear();
     cout << "Cleared" << endl << endl;
     binSearchTree->displayTree();
     cout << endl;
 
-    /*
+    *//*
      *  filling tree with poorly chosen test data and displaying it
-     */
+     *//*
     cout << "Filling tree with poorly chosen data" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA2; i++) {
@@ -202,7 +213,7 @@ int main(int argc, char** argv) {
     //delete tree and make sure the destructor works
     delete binSearchTree;
 
-    cout << endl;
+    cout << endl;*/
     return 0;
 }
 

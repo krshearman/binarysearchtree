@@ -55,8 +55,7 @@ bool BinTree::addNode(int id, string data){
    t->data.information = data;
    t->left = nullptr;
    t->right = nullptr;
-   DataNode *temp = root;
-   return addNode(t, &temp);
+   return addNode(t, &root);
 }
 
 bool BinTree::removeNode(int id){
@@ -88,7 +87,8 @@ void BinTree::displayPostOrder(){
 }
 
 void BinTree::displayInOrder(){
-
+    DataNode *temp = root;
+    displayInOrder(temp);
 }
 
 //private methods
@@ -100,22 +100,15 @@ void BinTree::clear(DataNode*){
 bool BinTree::addNode(DataNode * t, DataNode ** temp){
     bool inserted = false;
     if(*temp == nullptr){
-        *temp = new DataNode;
-        (*temp)->left = nullptr;
-        (*temp)->right = nullptr;
-        (*temp)->data.id = t->data.id;
-        (*temp)->data.information = t->data.information;
+        *temp = t;
         count++;
         inserted = true;
-    }
-    if (t->data.id < (*temp)->data.id){
-        DataNode *t2 = new DataNode;
-        t2 =  (*temp)->left;
-        inserted = addNode(t, &t2);
-    } else if (t->data.id > (*temp)->data.id){
-        DataNode *t3 = new DataNode;
-        t3 =  (*temp)->right;
-        inserted = addNode(t, &t3);
+    } else {
+        if (t->data.id < (*temp)->data.id){
+            inserted = addNode(t, &(*temp)->left);
+        } else {
+            inserted = addNode(t, &(*temp)->right);
+        }
     }
     return inserted;
 }
