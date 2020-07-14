@@ -80,11 +80,13 @@ int BinTree::getHeight(){
 }
 
 void BinTree::displayPreOrder(){
-
+    DataNode *temp = root;
+    displayPreOrder(temp);
 }
 
 void BinTree::displayPostOrder(){
-
+    DataNode *temp = root;
+    displayPostOrder(temp);
 }
 
 void BinTree::displayInOrder(){
@@ -163,12 +165,20 @@ BinTree::getHeight(DataNode * temp){
     return height;
 }
 
-void BinTree::displayPreOrder(DataNode * data){
-
+void BinTree::displayPreOrder(DataNode * temp){
+    if(temp != nullptr){
+        cout << temp->data.id << " " << temp->data.information << endl;
+        displayPreOrder(temp->left);
+        displayPreOrder(temp->right);
+    }
 }
 
-void BinTree::displayPostOrder(DataNode * data){
-
+void BinTree::displayPostOrder(DataNode * temp){
+    if(temp != nullptr){
+        displayPostOrder(temp->left);
+        displayPostOrder(temp->right);
+        cout << temp->data.id << " " << temp->data.information << endl;
+    }
 }
 
 void BinTree::displayInOrder(DataNode * temproot){

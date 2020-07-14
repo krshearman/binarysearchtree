@@ -74,7 +74,10 @@ int main(int argc, char** argv) {
 
     binSearchTree->displayInOrder();
     cout << endl;
-
+    binSearchTree->displayPostOrder();
+    cout << endl;
+    binSearchTree->displayPreOrder();
+    cout << endl;
 
 
 
