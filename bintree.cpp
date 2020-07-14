@@ -42,7 +42,15 @@ bool BinTree::getRootData(Data * data){
 }
 
 void BinTree::displayTree(){
-
+    cout << "Pre-Order Traversal" << endl;
+    displayPreOrder();
+    cout << endl;
+    cout << "In-Order Traversal" << endl;
+    displayInOrder();
+    cout << endl;
+    cout << "Post-Order Traversal" << endl;
+    displayPostOrder();
+    cout << endl;
 }
 
 void BinTree::clear(){

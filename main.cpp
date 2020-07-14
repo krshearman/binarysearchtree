@@ -72,12 +72,15 @@ int main(int argc, char** argv) {
 
     /* START THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
 
-    binSearchTree->displayInOrder();
+   /* binSearchTree->displayInOrder();
     cout << endl;
     binSearchTree->displayPostOrder();
     cout << endl;
     binSearchTree->displayPreOrder();
-    cout << endl;
+    cout << endl;*/
+
+   binSearchTree->displayTree();
+   cout << endl;
 
 
 
