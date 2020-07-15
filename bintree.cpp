@@ -68,15 +68,24 @@ bool BinTree::addNode(int id, string data){
 }
 
 bool BinTree::removeNode(int id){
-    return false;
+    bool removed = false;
+    int tempCount = count;
+    DataNode *temp = root;
+    root = removeNode(id, temp);
+    if(count < tempCount){
+        removed = true;
+    }
+    return removed;
 }
 
 bool BinTree::getNode(Data * data, int id){
+    //verify id
     DataNode *temp = root;
     return getNode(data, id, temp);
 }
 
 bool BinTree::contains(int id){
+    //verify id
     DataNode *temp = root;
     bool found = false;
     return contains(id, temp);
@@ -124,9 +133,33 @@ bool BinTree::addNode(DataNode * t, DataNode ** temp){
     return inserted;
 }
 
-DataNode* BinTree::removeNode(int id, DataNode * data){
-    DataNode * ptr;
-    return ptr;
+DataNode* BinTree::removeNode(int id, DataNode * temp){
+    if(temp != nullptr){
+        if(id < temp->data.id){
+            temp->left = removeNode(id, temp->left);
+        } else if (id > temp->data.id){
+            temp->right = removeNode(id, temp->right);
+        } else {
+            DataNode * nTemp = new DataNode;
+            if(temp->left == nullptr){
+                nTemp = temp->right;
+                delete temp;
+                temp = nTemp;
+                count--;
+            } else if (temp->right == nullptr){
+                nTemp = temp->left;
+                delete temp;
+                temp = nTemp;
+                count--;
+            } else {
+                nTemp = minValueNode(temp->right);
+                temp->data.id = nTemp->data.id;
+                temp->data.information = nTemp->data.information;
+                temp->right = removeNode(nTemp->data.id,temp->right);
+            }
+        }
+    }
+    return temp;
 }
 
 bool BinTree::getNode(Data * data, int id, DataNode * temp){
@@ -159,8 +192,7 @@ bool BinTree::contains(int id, DataNode * temp){
     return found;
 }
 
-int
-BinTree::getHeight(DataNode * temp){
+int BinTree::getHeight(DataNode * temp){
     int height;
     int x, y;
     if (temp == nullptr){
@@ -200,4 +232,12 @@ void BinTree::displayInOrder(DataNode * temproot){
         }
     }
     return;
+}
+
+DataNode* BinTree::minValueNode(DataNode* node) {
+    DataNode* current = node;
+    while (current && current->left != NULL) {
+        current = current->left;
+    }
+    return current;
 }

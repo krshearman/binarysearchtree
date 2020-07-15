@@ -155,10 +155,10 @@ int main(int argc, char** argv) {
         cout << "NOT found: " << tempid << endl;
     }
     cout << endl;
+
     /*
-    *//*
      *  testing removing nodes
-     *//*
+     */
     cout << "Testing removeNode() randomly" << endl;
     cout << "==============================================" << endl;
     tempid = ids1[random_range(0, TESTDATA1 - 1)];
@@ -189,11 +189,11 @@ int main(int argc, char** argv) {
     binSearchTree->displayTree();
     cout << endl;
 
-    *//*
+    /*
      *  testing clearing tree
      *  and displaying it
-     *//*
-    cout << "Clearing tree... ";
+     */
+    /*cout << "Clearing tree... ";
     binSearchTree->clear();
     cout << "Cleared" << endl << endl;
     binSearchTree->displayTree();
@@ -201,7 +201,7 @@ int main(int argc, char** argv) {
 
     *//*
      *  filling tree with poorly chosen test data and displaying it
-     *//*
+     */
     cout << "Filling tree with poorly chosen data" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA2; i++) {
@@ -216,7 +216,7 @@ int main(int argc, char** argv) {
     binSearchTree->displayTree();
 
     //delete tree and make sure the destructor works
-    delete binSearchTree;
+    /*delete binSearchTree;
 
     cout << endl;*/
     return 0;

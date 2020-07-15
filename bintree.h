@@ -41,6 +41,7 @@ private:
     void displayPreOrder(DataNode*);
     void displayPostOrder(DataNode*);
     void displayInOrder(DataNode*);
+    DataNode* minValueNode(DataNode*);
 
     DataNode *root;
     int count;
