@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     /*
      *  testing methods on empty tree
      */
-    /*cout << "Testing removeNode() on empty tree" << endl;
+    cout << "Testing removeNode() on empty tree" << endl;
     cout << "==============================================" << endl;
     tempid = 10;
     cout << "removing " << tempid << "... ";
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     } else {
         cout << "NOT found: " << tempid << endl;
     }
-    cout << endl;*/
+    cout << endl;
 
     /*
      *  filling tree with test data and displaying
@@ -79,14 +79,14 @@ int main(int argc, char** argv) {
     binSearchTree->displayPreOrder();
     cout << endl;*/
 
-   binSearchTree->displayTree();
-   cout << endl;
+   //binSearchTree->displayTree();
+   //cout << endl;
 
 
 
 
     /* END THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
-    //binSearchTree->displayTree();
+    binSearchTree->displayTree();
 
     cout << "Testing getRootData() on non-empty tree" << endl;
     cout << "==============================================" << endl;
@@ -193,7 +193,7 @@ int main(int argc, char** argv) {
      *  testing clearing tree
      *  and displaying it
      */
-    /*cout << "Clearing tree... ";
+   /* cout << "Clearing tree... ";
     binSearchTree->clear();
     cout << "Cleared" << endl << endl;
     binSearchTree->displayTree();
@@ -201,7 +201,7 @@ int main(int argc, char** argv) {
 
     *//*
      *  filling tree with poorly chosen test data and displaying it
-     */
+     *//*
     cout << "Filling tree with poorly chosen data" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA2; i++) {
@@ -213,7 +213,7 @@ int main(int argc, char** argv) {
         cout << endl;
     }
     cout << endl;
-    binSearchTree->displayTree();
+    binSearchTree->displayTree();*/
 
     //delete tree and make sure the destructor works
     /*delete binSearchTree;
