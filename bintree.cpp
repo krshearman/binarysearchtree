@@ -43,7 +43,7 @@ bool BinTree::getRootData(Data * data){
 
 void BinTree::displayTree(){
     cout << "DISPLAY TREE" << endl << "==============================================" << endl;
-    !(isEmpty()) ? cout << "The Tree is NOT empty" : cout << "The Tree is empty";
+    !(isEmpty()) ? cout << "Tree is NOT empty" : cout << "Tree is empty";
     cout << endl;
     cout << "Height " << getHeight() << endl;
     cout << "Node Count: " << count << endl << endl;
