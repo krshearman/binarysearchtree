@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
      */
     BinTree *binSearchTree = new BinTree;
     cout << endl << "Binary Search Tree created" << endl << endl;
-    //binSearchTree->displayTree();
+    binSearchTree->displayTree();
 
     /*
      *  testing methods on empty tree
@@ -70,22 +70,6 @@ int main(int argc, char** argv) {
     }
     cout << endl;
 
-    /* START THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
-
-   /* binSearchTree->displayInOrder();
-    cout << endl;
-    binSearchTree->displayPostOrder();
-    cout << endl;
-    binSearchTree->displayPreOrder();
-    cout << endl;*/
-
-   //binSearchTree->displayTree();
-   //cout << endl;
-
-
-
-
-    /* END THIS IS MY CODE FOR DEBUGGING. REMOVE BEFORE SUBMITTING */
     binSearchTree->displayTree();
 
     cout << "Testing getRootData() on non-empty tree" << endl;
@@ -193,15 +177,15 @@ int main(int argc, char** argv) {
      *  testing clearing tree
      *  and displaying it
      */
-   /* cout << "Clearing tree... ";
+    cout << "Clearing tree... ";
     binSearchTree->clear();
     cout << "Cleared" << endl << endl;
     binSearchTree->displayTree();
     cout << endl;
 
-    *//*
+    /*
      *  filling tree with poorly chosen test data and displaying it
-     *//*
+     */
     cout << "Filling tree with poorly chosen data" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA2; i++) {
@@ -213,12 +197,12 @@ int main(int argc, char** argv) {
         cout << endl;
     }
     cout << endl;
-    binSearchTree->displayTree();*/
+    binSearchTree->displayTree();
 
     //delete tree and make sure the destructor works
-    /*delete binSearchTree;
+    delete binSearchTree;
 
-    cout << endl;*/
+    cout << endl;
     return 0;
 }
 
